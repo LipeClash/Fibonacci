@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Fibonacci
 {
@@ -6,21 +6,25 @@ namespace Fibonacci
     {
         static void Main(string[] args)
         {
-            Console.Write("Digite um número inteiro: ");
+            Console.Write("Digite um número inteiro (>=2): ");
             int numero=Convert.ToInt32(Console.ReadLine());
 
             int f1=0;
             int f2=1;
-            int soma=f1 + f2;
+            int soma=0;
 
-            Console.Write(0 + " " + 1 +" ");
+            if (numero < 2)
+            {
+                Console.WriteLine("Favor digitar um número maior ou igual a 2");
+                Environment.Exit(-1);
+            }
             
-            for (int i = 3; i <=numero; i++)
+            for (int i = 0; i < numero; i++)
             {
                 Console.Write(soma + " ");
-                f1=f2;
-                f2=soma;
                 soma=f1 + f2;
+                f2=f1;
+                f1=soma;
             }
         }
     }
